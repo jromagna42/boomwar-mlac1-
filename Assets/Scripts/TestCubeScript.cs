@@ -8,12 +8,16 @@ public class TestCubeScript : MonoBehaviour {
 	Rigidbody			rb;
 	Vector3				vecToTheCube;
 	Material			mat;
+	MaterialPropertyBlock props;
+	MeshRenderer renderer;
+
 	// Use this for initialization
 	Color originalColor;
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		mat = GetComponent<Material>();
-		originalColor = mat.GetColor("_Color");
+		props = new MaterialPropertyBlock();
+		renderer = GetComponent<MeshRenderer>();
+		originalColor = renderer.sharedMaterial.GetColor("_Color");
 	}
 	
 	// Update is called once per frame
@@ -26,10 +30,16 @@ public class TestCubeScript : MonoBehaviour {
 		vecToTheCube =  theCube.transform.position - transform.position;
 		// Debug.Log(vecToTheCube.magnitude);
 		float dist = vecToTheCube.magnitude;
-		if (dist < 10f)
+		if (dist < 500f)
 		{
-			mat.SetColor("_Color", Color.Lerp(originalColor, Color.red, dist / 10));
-			rb.AddForce(vecToTheCube.x , vecToTheCube.y, vecToTheCube.z);
+			// mat.SetColor("_Color", Color.Lerp(originalColor, Color.red, 10 / dist));
+			rb.AddForce(vecToTheCube.x * 2, vecToTheCube.y * 2, vecToTheCube.z * 2);
 		}
+  		props.SetColor("_Color", Color.Lerp(originalColor, Color.red, 10 / dist));
+		renderer.SetPropertyBlock(props);
 	}
+
+// MaterialPropertyBlock props = new MaterialPropertyBlock();
+// MeshRenderer renderer;
+
 }
