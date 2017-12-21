@@ -6,7 +6,7 @@ public class TestCubeScript : MonoBehaviour {
 
 	public GameObject theCube;
 	Rigidbody			rb;
-	Vector3				vecToTheCube;
+	Vector3Int				vecToTheCube;
 	Material			mat;
 	MaterialPropertyBlock props;
 	MeshRenderer renderer;
@@ -27,9 +27,12 @@ public class TestCubeScript : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		vecToTheCube =  theCube.transform.position - transform.position;
+		// transform.RoundTransform();
+		vecToTheCube = Vector3Int.RoundToInt(theCube.transform.position - transform.position);
+		// vecToTheCube = vecToTheCube.RoundVec3();
 		// Debug.Log(vecToTheCube.magnitude);
 		float dist = vecToTheCube.magnitude;
+		dist.RoundFloat();
 		if (dist < 500f)
 		{
 			// mat.SetColor("_Color", Color.Lerp(originalColor, Color.red, 10 / dist));
