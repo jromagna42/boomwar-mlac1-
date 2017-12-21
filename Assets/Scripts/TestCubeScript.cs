@@ -27,18 +27,18 @@ public class TestCubeScript : MonoBehaviour {
 
 	void FixedUpdate()
 	{	
-		// transform.RoundTransform();
+		transform.RoundTransform();
 		vecToTheCube = theCube.transform.position - transform.position;
-		// vecToTheCube = vecToTheCube.RoundVec3();
+		//vecToTheCube = vecToTheCube.RoundVec3();
 		// Debug.Log(vecToTheCube.magnitude);
 		float dist = vecToTheCube.magnitude;
-		// dist.RoundFloat();
-		if (dist < 500f)
+	//	dist.RoundFloat();
+		if (dist < 50000f)
 		{
 			// mat.SetColor("_Color", Color.Lerp(originalColor, Color.red, 10 / dist));
 			rb.AddForce(vecToTheCube.x * 2, vecToTheCube.y * 2, vecToTheCube.z * 2);
 		}
-  		props.SetColor("_Color", Color.Lerp(originalColor, Color.red, 10 / dist));
+  		props.SetColor("_Color", Color.Lerp(originalColor, Color.red, 1000f / dist));
 		renderer.SetPropertyBlock(props);
 	}
 
