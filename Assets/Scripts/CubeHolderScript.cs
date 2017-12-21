@@ -36,6 +36,8 @@ public class CubeHolderScript : MonoBehaviour {
 		{
 			theBigString = string.Concat(theBigString, string.Concat(t.position.ToString(), t.rotation.ToString()));
 		}
+		Debug.Log(theBigString);
+		
 		Debug.Log(theBigString.GetHashCode());
 		
 		Debug.Log("postboucherie");

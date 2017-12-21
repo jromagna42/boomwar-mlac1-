@@ -6,15 +6,15 @@ public static class DeterministicTest
 {
 	public static Vector3 RoundVec3(this Vector3 v)
 	{
-		v.x = Mathf.Round(v.x * 100f) / 100f;
-		v.y = Mathf.Round(v.y * 100f) / 100f;
-		v.z = Mathf.Round(v.z * 100f) / 100f;
+		v.x = Mathf.Round(v.x);
+		v.y = Mathf.Round(v.y);
+		v.z = Mathf.Round(v.z);
 		return v;
 	}
 
 	public static float RoundFloat(this float f)
 	{
-		f = Mathf.Round(f * 100f) / 100f;
+		f = Mathf.Round(f);
 		return f;
 	}
 
