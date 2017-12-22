@@ -9,7 +9,6 @@ public static class DeterministicTest
 		v.x = Mathf.Round(v.x);
 		v.y = Mathf.Round(v.y);
 		v.z = Mathf.Round(v.z);
-	//	v.x = 1;
 		return v;
 	}
 
